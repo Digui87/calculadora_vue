@@ -1,14 +1,5 @@
 <script setup>
-import { reactive } from 'vue';
-
-const aritmetica = reactive({
-  somar: 'somar',
-  diminuir: 'diminuir',
-  multiplicar: 'multiplicar',
-  dividir: 'dividir'
-})
-
-
+import Calculadora from './components/Calculadora.vue';
 </script>
 
 <template>
@@ -18,10 +9,10 @@ const aritmetica = reactive({
     </header>
     <div class="row">
       <div class="col-md-5">
-        <input type="number" placeholder="Número">
+        <input type="number" v-model="numero1">
       </div>
       <div class="col-md-2">
-        <select class="form-control">
+        <select v-model="operacao" class="form-control">
           <option value="somar">Somar</option>
           <option value="diminuir">Diminuir</option>
           <option value="multiplicar">Multiplicar</option>
@@ -29,10 +20,10 @@ const aritmetica = reactive({
         </select>
       </div>
       <div class="col-md-5">
-        <input type="number" placeholder="Número">
+        <input type="number" v-model="numero2">
       </div>
     </div>
-    <h2 class="mt-5">Resultado</h2>
+    <h2 class="mt-5">Resultado: {{ resultado }}</h2>
   </div>
 </template>
 
